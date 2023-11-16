@@ -1,4 +1,3 @@
----
 - name: Expense Frontend Setup
   hosts: all
   become: yes
@@ -24,8 +23,8 @@
         dest: /usr/share/nginx/html
         remote_src: yes
 
-    - name: Start nginx Service
-      ansible.builtin.systemd:
+    - name: Ensure Nginx service is started and enabled
+      ansible.builtin.service:
         name: nginx
-        state: restarted
+        state: started
         enabled: yes
