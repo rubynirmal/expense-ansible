@@ -10,7 +10,7 @@
     - name: Copy Expense config file
       ansible.builtin.copy:
         src: expense.conf
-        dest: '/etc/nginx/default.d/expense.conf'
+        dest: /etc/nginx/default.d/expense.conf
 
     - name: Create Nginx Dir
       ansible.builtin.file:
