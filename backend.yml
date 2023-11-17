@@ -1,0 +1,4 @@
+- name: Expense Frontend Setup
+  hosts: all
+  become: yes
+  tasks:
