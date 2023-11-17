@@ -11,6 +11,10 @@
         src: mysql.repo
         dest: /etc/yum.repos.d/mysql.repo
 
+    - name: Update repository cache
+      ansible.builtin.dnf:
+        name: ''
+        state: refresh
 
     - name: Install MySQL server
       ansible.builtin.dnf:
