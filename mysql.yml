@@ -1,8 +1,7 @@
 - name: Expense MySQL Setup
   hosts: all
   become: yes
-  vars:
-    MYSQL_ROOT_PASSWORD: "ExpenseApp@1"
+
   tasks:
     - name: Disable MYSQL default version
       ansible.builtin.shell:
@@ -12,13 +11,6 @@
       ansible.builtin.copy:
         src: mysql.repo
         dest: /etc/yum.repos.d/mysql.repo
-        owner: root
-        group: root
-        mode: '0644'
-
-    - name: Update repository cache
-      ansible.builtin.dnf:
-        update_cache: yes
 
     - name: Install MySQL server
       ansible.builtin.dnf:
@@ -32,12 +24,5 @@
         enabled: yes
 
     - name: Set MySQL Password
-      ansible.builtin.shell:
-        cmd: mysql_secure_installation
-        stdin: |
-          {{ MYSQL_ROOT_PASSWORD }}
-          n
-          n
-          n
-          n
-          y
+      ansible.builtin.shell: |
+        mysql_secure_installation --set-root-pass={{ MYSQL_ROOT_PASSWORD }}
