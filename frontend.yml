@@ -1,5 +1,5 @@
 - name: Expense Frontend Setup
-  hosts: 54.161.90.21
+  hosts: all
   become: yes
   tasks:
     - name: Install Nginx
