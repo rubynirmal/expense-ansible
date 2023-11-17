@@ -34,6 +34,4 @@
         state: restarted
         enabled: yes
 
-    - name: Ping Backend Server
-      ansible.builtin.ping:
-        data: "backend.rubydevops.cloud"
+
