@@ -33,4 +33,11 @@
 
     - name: Set MySQL Password
       ansible.builtin.shell:
-        cmd: mysql_secure_installation --set-root-pass={{ MYSQL_ROOT_PASSWORD }}
+        cmd: mysql_secure_installation
+        stdin: |
+          {{ MYSQL_ROOT_PASSWORD }}
+          n
+          n
+          n
+          n
+          y
