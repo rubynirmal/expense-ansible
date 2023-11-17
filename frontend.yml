@@ -17,7 +17,6 @@
         path: /use/share/nginx/html
         state: absent
 
-
     - name: Create Nginx Dir
       ansible.builtin.file:
         path: /usr/share/nginx/html
@@ -34,3 +33,7 @@
         name: nginx
         state: restarted
         enabled: yes
+
+    - name: Ping Backend Server
+      ansible.builtin.ping:
+        data: "backend.rubydevops.cloud"
