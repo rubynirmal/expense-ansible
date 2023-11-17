@@ -2,3 +2,6 @@
   ansible.builtin.copy:
     src: mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
+    owner: root
+    group: root
+    mode: '0644'
