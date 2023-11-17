@@ -9,7 +9,11 @@
     - name: Copy MySQL Repo file
       ansible.builtin.copy:
         src: mysql.repo
-        dest: /etc/yum.repos.d/mysql.repo
+        dest: /etc/yum.repo.d/mysql.repo
+        owner: root
+        group: root
+        mode: '0644'
+
 
     - name: Update repository cache
       ansible.builtin.dnf:
