@@ -20,7 +20,7 @@
 
     - name: Update repository cache
       ansible.builtin.dnf:
-        name: mysql57-community
+        name: ''
         state: latest
 
     - name: Install MySQL server
