@@ -14,7 +14,7 @@
     - name: Update repository cache
       ansible.builtin.dnf:
         name: ''
-        state: refresh
+        state: latest
 
     - name: Install MySQL server
       ansible.builtin.dnf:
