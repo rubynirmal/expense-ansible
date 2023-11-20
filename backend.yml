@@ -39,8 +39,8 @@
         name: mysql
         state: present
     - name: load schema
-      ansible.builtin.shell: mysql -h mysql-dev.rubydevops.cloud -U root -p{{MYSQL_ROOT_PASSWORD}} </app/schema/backend.sql
-
+      ansible.builtin.shell:
+        cmd: mysql -h mysql-dev.rubydevops.cloud -U root -p{{MYSQL_ROOT_PASSWORD}} </app/schema/backend.sql
     - name: Restart Backend Service
       ansible.builtin.systemd:
         name: backend
