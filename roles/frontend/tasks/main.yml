@@ -11,9 +11,10 @@
 - name: Import Common role - APP pre-requisites
   ansible.builtin.import_role:
     name: common
+    tasks_from: app-prereq
     vars:
-      app_prereq_app_dir: /usr/share/nginx/html
-      app_prereq_component: frontend
+     app_dir: /usr/share/nginx/html
+    component: frontend
 
 
 - name: Start Nginx service
