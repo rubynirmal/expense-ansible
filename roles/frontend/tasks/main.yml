@@ -12,14 +12,12 @@
   ansible.builtin.import_role:
     name: common
     tasks_from: app-prereq
-    vars:
-     app_dir: /usr/share/nginx/html
+  vars:
+    app_dir: /usr/share/nginx/html
     component: frontend
-
 
 - name: Start Nginx service
   ansible.builtin.service:
     name: nginx
     state: restarted
     enabled: yes
-
