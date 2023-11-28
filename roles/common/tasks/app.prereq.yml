@@ -1,9 +1,4 @@
-- name: import common role - APP pre-requisites
-  import_role:
-    name: common
 
-  vars:
-    component: frontend
 
 - name: Delete old app directory
   ansible.builtin.file:

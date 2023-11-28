@@ -18,13 +18,13 @@
   ansible.builtin.user:
     name: expense
 
-- name: import common role - APP pre-requisites
+- name: Import common role - APP pre-requisites
   ansible.builtin.import_role:
     name: common
     task_from: app-prereq
-    vars:
-      app_dir: /app
-      component: backend
+  vars:
+    app_dir: /app
+    component: backend
 
 - name: Download NodeJS Dependencies
   ansible.builtin.shell: npm install
@@ -37,7 +37,7 @@
     state: present
 
 - name: Load schema
-  ansible.builtin.shell:
+  ansible.builtin.shell: |
     mysql -h {{ lookup('amazon.aws.aws_ssm', 'backend.{{env}}.DB_Host', region='us-east-1' ) }}
     -u{{ lookup('amazon.aws.aws_ssm', 'backend.{{env}}.DB_USER', region='us-east-1' ) }}
     -p{{ lookup('amazon.aws.aws_ssm', 'backend.{{env}}.DB_PASS', region='us-east-1' ) }}
