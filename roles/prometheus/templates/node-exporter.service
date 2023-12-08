@@ -5,4 +5,4 @@ Description=Node Exporter Service
 ExecStart=/opt/node_exporter-1.7.0.linux-amd64/node_exporter
 
 [Install]
-Wanterby=multi-user.target
+Wantedby=multi-user.target
