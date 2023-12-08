@@ -6,12 +6,12 @@
 
 - name: Copy systemD Service file
   ansible.builtin.template:
-    src: node-exporter.service.j2
+    src: node-exporter.service
     dest: /etc/systemd/system/node-exporter.service
 
-    -name: Start node Exporter
-    ansible.builtin.systemd:
-      name: node-exporter
-      state: restarted
-      enabled: yes
-      daemon-reload: yes
+- name: Start node Exporter
+  ansible.builtin.systemd:
+    name: node-exporter
+    state: restarted
+    enabled: yes
+    daemon-reload: yes
